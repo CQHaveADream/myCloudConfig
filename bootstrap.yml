@@ -1,5 +1,0 @@
-server:
-  port: 8762
-eureka:
-  client:
-    service-url-defaultZone: http://192.168.11.110:8761/eureka/

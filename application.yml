@@ -26,7 +26,7 @@
           format_sql: true
       show-sql: true
   redis:
-      host: 192.168.11.10
+      host: 192.168.11.9
       password: my_redis
       port: 6379
       pool:

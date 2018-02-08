@@ -1,6 +1,4 @@
 ﻿spring:
-  application:
-    name: service-my
   datasource:
       url: jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true
       username: root

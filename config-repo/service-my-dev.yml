@@ -27,7 +27,7 @@
       show-sql: true
   redis:
       host: 192.168.11.10
-      password: my_redis
+      password: my_redis #连接密码
       port: 6379
       pool:
         # 连接池中的最大空闲连接

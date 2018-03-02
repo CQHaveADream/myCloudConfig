@@ -39,11 +39,3 @@
         max-wait: 1
       # 连接超时时间（毫秒）
       timeout: 60000
-zuul:
-  routes:
-    api-a:
-      path: /service-my/**
-      serviceId: service-my
-    api-b:
-      path: /service-you/**
-      serviceId: service-you

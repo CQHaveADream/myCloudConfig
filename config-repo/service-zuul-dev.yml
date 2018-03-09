@@ -1,8 +1,8 @@
 ﻿zuul:
   routes:
     api-a:
-      path: /service-my/**
+      path: /service-a/**
       serviceId: service-my
     api-b:
-      path: /service-you/**
+      path: /service-b/**
       serviceId: service-you

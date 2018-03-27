@@ -39,3 +39,11 @@
         max-wait: 1
       # 连接超时时间（毫秒）
       timeout: 60000
+my:
+ android:
+   secret: lUuKrPDbnJlXLue8lZwthw==
+   package: com.CQHaveADream.util
+ ios:
+   secret:
+ development:
+   type: 1

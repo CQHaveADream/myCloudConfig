@@ -1,0 +1,9 @@
+cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/CQHaveADream/myCloudConfig
+          username: CQHaveADream
+          password: hahaheihei123
+          search-paths: config-repo

@@ -10,10 +10,6 @@ druid:
   resetEnable: false
 
 spring:
-  application:
-      name: tsingtao
-  profiles:
-      active: dev
   datasource:
     name: tingtaodb
     url: jdbc:oracle:thin:@127.0.0.1:1521:orcl

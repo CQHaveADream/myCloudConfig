@@ -1,9 +1,3 @@
-﻿server:
-  port: 81
-  context-path: /tsingtao
-  session:
-    timeout: 14400
-
 druid:
   loginUsername: admin
   loginPassword: 123456

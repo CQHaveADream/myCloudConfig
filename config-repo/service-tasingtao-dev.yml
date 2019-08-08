@@ -1,0 +1,153 @@
+﻿server:
+  port: 81
+  context-path: /tsingtao
+  session:
+    timeout: 14400
+
+druid:
+  loginUsername: admin
+  loginPassword: 123456
+  resetEnable: false
+
+spring:
+  application:
+      name: tsingtao
+  profiles:
+      active: dev
+  datasource:
+    name: tingtaodb
+    url: jdbc:oracle:thin:@127.0.0.1:1521:orcl
+    username: system
+    password: admin123
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: oracle.jdbc.OracleDriver
+    continue-on-error: true
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 1 from dual
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    removeAbandoned: true
+    removeAbandonedTimeout: 1800
+    logAbandoned: true
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+    filters: config,stat,wall
+    connectionProperties: druid.stat.slowSqlMillis=5000;
+  jpa:
+    database: ORACLE
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle12cDialect
+        current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+  http:
+    multipart:
+      max-file-size: 100Mb
+      max-request-size: 100Mb
+      location: d:/tsingtaoFile/
+    converters:
+      preferred-json-mapper: fastjson
+    encoding:
+      charset: utf-8
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  resources:
+    static-locations: file:${spring.http.multipart.location}
+  aop:
+      proxy-target-class: true
+
+system:
+  dev:
+    model: true
+  login:
+    path: admin
+    enabled-kickout: true
+    max-session: 1
+  http:
+    protocol: http
+    host: 127.0.0.1
+  site:
+    name: TsingtaoCMS
+    prefix: front
+    subfix: .html
+    static: true
+    page: 
+      size: 10
+  member:
+      allow:
+        register: false
+  filepath: d:/tsingfile/
+kcaptcha:
+  img:
+    width: 140
+    hight: 50
+  font:
+    size: 40
+    color: green
+  char:
+    length: 4
+
+beetlsql:
+  enabled: false
+#beetl:
+#  enabled: true
+
+shiro:
+  enabled: true
+  annotations:
+    enabled: true
+  session:
+    globalSessionTimeout: 5400000
+    validation:
+      interval: 1800000
+  active:
+    session:
+      cacheName: activeSessionCache
+  uid:
+    cookie:
+      name: uid
+      domain:
+      path: /
+      httpOnly: true
+      maxAge: -1
+    rememeberMe:
+      cookie:
+        name: rememberMe
+        maxAge: 2592000
+        base64:
+          cipherKey: 4AvVhmFLUs0KTA3Kprsdag==
+  login:
+    url: /login
+  logout:
+    url: /login?logout=1
+  user:
+    notfound:
+      url: /login?notfound=1
+    blocked:
+      url: /login?blocked=1
+    unknown:
+      error:
+        url: /login?unknown=1
+  unauthorized:
+    url: /error/403
+  default:
+    success:
+      url: /vcenter
+    admin:
+      success:
+        url: /vcenter
+  jcaptcha:
+    enable: false
+    error:
+      url: /login?jcaptchaError=1
